@@ -19,6 +19,7 @@ function App() {
   );
   
 }
+//skaldk
 async function  participate() {
   const accounts = await web3.eth.getAccounts();
   await lottery.methods.enter().send({
