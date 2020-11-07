@@ -8,4 +8,4 @@ export function getWeb3() {
     web3 = new Web3(Web3.givenProvider);
   }
   return web3;
-}
+};
