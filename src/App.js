@@ -58,10 +58,10 @@ class App extends Component {
     await lottery.methods.choseWinner().send({
       from: accounts[0],
       //este value es una prueba, en realidad creo que no deberíamos ponerlo:)
-      value: web3.utils.toWei("1", 'ether')
+      //value: web3.utils.toWei("1", 'ether')
     }); 
 
-    this.setState({ message: 'winner' })
+    this.setState({ message: 'winner' + lottery.methods.totalamount() })
   };
 
 }

@@ -27,9 +27,16 @@ contract Lottery {
         players.push(msg.sender);
         totalamount += msg.value;
     }
-    
+
+    function random() private view returns (uint) {
+        uint randomHash = uint(keccak256(abi.encodePacked(block.difficulty, block.timestamp)));
+        return randomHash;
+    }
+
     function choseWinner() public onlyOwner payable{
-         numrandom = uint(block.number * block.timestamp)%(players.length + 1);
+         numrandom = random()%players.length;
          players[numrandom].transfer(totalamount);
     }
+
+    
 }
