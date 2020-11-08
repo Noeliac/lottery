@@ -11,7 +11,7 @@ class App extends Component {
 
   state = {
     value: '', 
-    message:''
+    message:'¡Bienvenido!'
   };
    render() {
     return (
@@ -19,6 +19,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h4>PARTICIPA EN LA LOTERÍA</h4>  
+          <h1>{this.state.message}</h1>
         </header>
       
         <form onSubmit={this.participate}>
@@ -31,7 +32,7 @@ class App extends Component {
           </div>
         <button>Enter</button>
         </form>
-        <h1>{this.state.message}</h1>
+        
 
         <div className='d'><label>Descubre quién es el ganador:</label></div>
           <button onClick={this.chooseWinner}>PREMIO</button>
@@ -50,18 +51,16 @@ class App extends Component {
       value: web3.utils.toWei(this.state.value, 'ether')
     });
 
-    this.setState({ message: 'You have been entered!'})
+    this.setState({ message: '¡Has entrado en el sorteo!'})
   };
   chooseWinner = async() =>{
     const accounts = await web3.eth.getAccounts();
 
     await lottery.methods.choseWinner().send({
       from: accounts[0],
-      //este value es una prueba, en realidad creo que no deberíamos ponerlo:)
-      //value: web3.utils.toWei("1", 'ether')
     }); 
 
-    this.setState({ message: 'winner' + lottery.methods.totalamount() })
+    this.setState({ message: '¡El ganador se ha llevado el premio!' })
   };
 
 }

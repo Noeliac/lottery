@@ -28,6 +28,10 @@
 .App-link {
   color: #61dafb;
 }
+h1 {
+  color: rgb(204, 89, 44);
+  font-size: 25px;
+}
 label {
   color:  #6d83b1;
   font-size: 20px;

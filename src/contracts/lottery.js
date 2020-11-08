@@ -10,7 +10,7 @@ const web3 = getWeb3();
 if (web3) {
   instance = new web3.eth.Contract(
     Lottery.abi,
-    "0xB98CeD6f55B50244de28b5F467Dd8E1B069d4Be3"
+    "0xFBB9f526170B8124C6aC8B043Fb82F5EE7d56b44"
   );
 }
 

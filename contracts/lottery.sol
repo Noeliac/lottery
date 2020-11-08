@@ -36,7 +36,8 @@ contract Lottery {
     function choseWinner() public onlyOwner payable{
          numrandom = random()%players.length;
          players[numrandom].transfer(totalamount);
+         totalamount = 0;
+         delete players;
     }
-
     
 }
